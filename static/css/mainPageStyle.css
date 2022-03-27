@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+html, body {
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+
+    font-family: 'Poppins', sans-serif;
+}
+#wrapper{
+    padding: 0;
+    margin: 0;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 0.5rem;
+
+    grid-template-areas:
+        "logoDiv"
+        "mainDiv";
+}
+
+
+
+
+#mainDiv{
+    grid-area: mainDiv;
+
+    margin-top: 3rem;
+
+    height: 10rem;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 0.5rem;
+
+    grid-template-areas:
+        "urlInputDiv";
+}
+
+
+#urlInputDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    animation: slide 0.6s, fadein 1s;
+}
+
+@media screen and (max-width: 600px){
+    #urlInputDiv > #convertForm > button{
+        width: 1rem;
+    }
+}
+
+
+
+#urlInputDiv > #convertForm > button{
+    height: 2.8rem;
+    width: 8rem;
+    border-radius: 8px;
+    background-color: red;
+    color: white;
+    border: none;
+    font-size: 16px;
+
+    transition-duration: 0.4s;
+}
+#urlInputDiv > #convertForm > button:hover{
+    transform: scale(1.1);
+}
+#urlInputDiv > #convertForm > button:active{
+    transform: scale(0.95);
+    transition-duration: 0.1s;
+}
+
+
+#urlInputDiv > #convertForm > input{
+    margin-right: 1rem;
+    width: 20rem;
+    height: 2.5rem;
+    border-radius: 8px;
+    border: 2px solid #B8B8B8;
+
+    transition-duration: 0.3s;
+}
+#urlInputDiv > #convertForm > input:focus{
+    outline: none;
+    transform: scale(1.05);
+}

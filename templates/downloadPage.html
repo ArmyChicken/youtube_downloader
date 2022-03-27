@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="static/css/shared/animation.css">
+    <script src="static/js/averageColor.js"></script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/downloadPageStyle.css">
+    <script src="static/js/buttonClick.js"></script>
+
+    {% if success %}
+        <title>{{ video['title'] }}</title>
+    {% else %}
+        <title>Video nenalezeno - error</title>
+    {% endif %}
+</head>
+<body>
+    <div id="wrapper">
+
+        {% include 'shared/banner.html' %}
+
+        <div id="mainDivDown">
+            <div id="leftSpace"></div>
+            <div id="rightSpace"></div>
+
+            <div id="videoInfoDiv">
+                <div id="imgDiv">
+                    <a href="{{ video['url'] }}" target="_blank">
+                        <img id="thumbnail" src="{{ video['thumbnail'] }}" alt="" srcset="">
+                    </a>
+                </div>
+                <div id="InfoDiv">
+                    <form action="/sendFile" method="post">
+                    {% if success %}
+                        <p id="title">{{ video['title'] }}</p>
+                        <p id="author">Autor: {{ video['author'] }}</p>
+                        <input type="hidden" name="url" id="url" value="{{ video['url'] }}">
+                        
+                        <div id="streamSelDiv">
+                            <select name="streams" id="streams">
+                                {% for stream in video['streams'] %}
+                                    <option value="{{ stream.itag }}">{{ stream.resolution }}</option>
+                                {% endfor %}
+
+                                <option value="{{ video['audio'].itag }}">audio</option>
+                            </select>
+                        </div>
+
+                        <div id="downloadButtDiv">
+                                <button type="submit" onclick="changeButtonAddWaitAnimation(this)">Stahnout</button>
+                        </div>
+                    {% else %}
+                        <span>videoNenalezeno</span>
+                    {% endif %}
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

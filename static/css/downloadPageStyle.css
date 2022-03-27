@@ -1,0 +1,183 @@
+html, body {
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+
+    font-family: 'Poppins', sans-serif;
+}
+
+#wrapperDown{
+    padding: 0;
+    margin: 0;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 0.5rem;
+
+    grid-template-areas:
+        "logoDiv"
+        "mainDivDown";
+}
+
+#mainDivDown{
+    grid-area: mainDivDown;
+
+    margin-top: 3rem;
+
+    height: 18rem;
+
+    display: grid;
+    grid-template-columns: 0.8fr 1fr 0.8fr;
+    grid-template-rows: 1fr;
+    grid-gap: 0.5rem;
+
+    grid-template-areas:
+        "leftSpace videoInfoDiv rightSpace";
+
+}
+
+
+#videoInfoDiv{
+
+    display: grid;
+
+
+    border-radius: 8px;
+    grid-area: videoInfoDiv;
+
+    padding: 0.5rem;
+
+    animation: scale 0.4s, fadein 0.7s;
+
+    grid-template-areas: "imgDiv"
+                         "InfoDiv";
+
+
+    box-shadow: 0px 0px 15px 2px #B8B8B8;
+
+    transition-duration: 1s;
+
+}
+#videoInfoDiv:hover{
+    transform: scale(1.00);
+}
+
+#imgDiv{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+}
+
+#imgDiv > a > img{
+
+    grid-area: imgDiv;
+
+    border-radius: 8px;
+    margin-right: 1rem;
+
+    box-shadow: 0px 0px 0px 0px #FF0000;
+
+    transition-duration: 0.5s;
+
+    height: 12rem;
+}
+#imgDiv > a > img:hover{
+    box-shadow: 8px 8px 0px 0px #FF0000;
+    transform: scale(1.02) rotate(1deg);
+}
+
+
+#InfoDiv{
+    grid-area: InfoDiv;
+}
+
+#title{
+    text-align: center;
+    font-weight: bold;
+}
+#author{
+    text-align: center;
+}
+
+#streamSelDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 2rem;
+}
+#streamSelDiv > select{
+
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    width: 8rem;
+    height: 2.5rem;
+    border-radius: 8px;
+
+    transition-duration: 0.3s;
+
+}
+#streamSelDiv > select:hover{
+    background-color: #B8B8B8;
+}
+
+#downloadButtDiv{
+    display: flex;
+    justify-content: center;
+
+    margin-top: 2rem;
+}
+#downloadButtDiv > button{
+    width: 10rem;
+    height: 2.5rem;
+
+    background-color: #FF0000;
+    border-radius: 8px;
+    border: none;
+    color: white;
+
+    font-size: 22px;
+
+    transition-duration: 1.3s;
+
+}
+#downloadButtDiv > button:hover{
+    transform: translateY(-6px) scale(1.05);
+    transition-duration: 0.3s;
+}
+#downloadButtDiv > button:active{
+    transform: scale(0.98);
+    transition-duration: 0.05s;
+}
+
+#leftSpace{
+    grid-area: leftSpace;
+}
+#rightSpace{
+    grid-area: rightSpace;
+}
+
+
+@keyframes fadein {
+	from {
+		opacity: 0;
+
+	}
+	to{
+		opacity: 1;
+	}
+}
+
+@keyframes scale {
+	from {
+		transform: scale(0.5);
+
+	}
+	to{
+		transform: scale(1);
+	}
+}
